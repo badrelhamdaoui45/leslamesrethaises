@@ -422,6 +422,56 @@ var ajax_sib_front_object = {"ajax_url":"https://www.federation-apcp.org/wp-admi
     margin-top: 4px;
 }
 </style>
+
+<style id="mobile-menu-compact-fix">
+/* ====== MOBILE MENU COMPACT FIX ====== */
+@media (max-width: 1024px) {
+  /* The offcanvas panel uses flex-direction: column-reverse and justify-content: flex-end
+     which causes each li to stretch and appear very spaced out. */
+  .elementskit-navbar-nav-default.elementskit-menu-offcanvas-elements {
+    justify-content: flex-start !important;
+  }
+
+  /* Reset height on nav items so they don't stretch */
+  .elementskit-navbar-nav-default .elementskit-navbar-nav > li {
+    height: auto !important;
+    flex: 0 0 auto !important;
+  }
+
+  /* Compact padding on links */
+  .elementskit-navbar-nav-default .elementskit-navbar-nav > li > a {
+    height: auto !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    line-height: 1.4 !important;
+    font-size: 15px !important;
+  }
+
+  /* Submenu items */
+  .elementskit-navbar-nav-default .elementskit-submenu-panel > li > a {
+    height: auto !important;
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+    padding-left: 20px !important;
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+  }
+
+  /* The nav list itself */
+  .elementskit-navbar-nav-default .elementskit-navbar-nav {
+    display: block !important;
+    height: auto !important;
+  }
+
+  /* Remove any large min-height forcing stretching */
+  .elementskit-navbar-nav-default.elementskit-menu-offcanvas-elements .elementskit-navbar-nav > li {
+    min-height: unset !important;
+    border-bottom: 1px solid #eaeaea;
+  }
+}
+</style>
 </head>
 
 <body class="wp-singular tribe_events-template-default single single-tribe_events postid-2890 wp-custom-logo wp-embed-responsive wp-theme-hello-elementor tribe-events-page-template tribe-no-js tribe-filter-live jkit-color-scheme hello-elementor-default events-single tribe-events-style-full tribe-events-style-theme elementor-default elementor-kit-175">
