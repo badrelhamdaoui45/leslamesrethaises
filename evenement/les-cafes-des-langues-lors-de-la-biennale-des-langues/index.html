@@ -427,51 +427,66 @@ Cafés des langues, spectacles multilingues participatifs :
 </style>
 
 <style id="mobile-menu-compact-fix">
-/* ====== MOBILE MENU COMPACT FIX ====== */
+/* ====== MOBILE MENU: ITEMS START AT TOP ====== */
 @media (max-width: 1024px) {
-  /* The offcanvas panel uses flex-direction: column-reverse and justify-content: flex-end
-     which causes each li to stretch and appear very spaced out. */
+  /*
+   * The original CSS uses flex-direction:column-reverse + justify-content:flex-end
+   * which pushes items to the visual BOTTOM of the full-height panel.
+   * Fix: switch to flex-direction:column + justify-content:flex-start
+   * so items appear at the TOP immediately.
+   */
   .elementskit-navbar-nav-default.elementskit-menu-offcanvas-elements {
+    flex-direction: column !important;
     justify-content: flex-start !important;
+    padding-top: 55px !important;   /* room for the close (X) button */
+    padding-bottom: 20px !important;
+    overflow-y: auto !important;
   }
 
-  /* Reset height on nav items so they don't stretch */
-  .elementskit-navbar-nav-default .elementskit-navbar-nav > li {
+  /* Pin the identity panel (X close button) to the top-right corner */
+  .elementskit-navbar-nav-default.elementskit-menu-offcanvas-elements .elementskit-nav-identity-panel {
+    position: absolute !important;
+    top: 8px !important;
+    right: 10px !important;
+    left: auto !important;
+    order: -1 !important;
+    padding: 0 !important;
+  }
+
+  /* The nav <ul> — natural height, no stretching */
+  .elementskit-navbar-nav-default .elementskit-navbar-nav {
+    display: block !important;
     height: auto !important;
     flex: 0 0 auto !important;
   }
 
-  /* Compact padding on links */
+  /* Each menu item — compact, natural height */
+  .elementskit-navbar-nav-default .elementskit-navbar-nav > li {
+    height: auto !important;
+    min-height: unset !important;
+    flex: 0 0 auto !important;
+    border-bottom: 1px solid #eaeaea !important;
+  }
+
+  /* Main menu links */
   .elementskit-navbar-nav-default .elementskit-navbar-nav > li > a {
     height: auto !important;
-    padding-top: 10px !important;
-    padding-bottom: 10px !important;
-    padding-left: 15px !important;
-    padding-right: 15px !important;
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
     line-height: 1.4 !important;
     font-size: 15px !important;
   }
 
-  /* Submenu items */
+  /* Submenu links */
   .elementskit-navbar-nav-default .elementskit-submenu-panel > li > a {
     height: auto !important;
-    padding-top: 8px !important;
-    padding-bottom: 8px !important;
-    padding-left: 20px !important;
+    padding-top: 9px !important;
+    padding-bottom: 9px !important;
+    padding-left: 30px !important;
     font-size: 14px !important;
     line-height: 1.4 !important;
-  }
-
-  /* The nav list itself */
-  .elementskit-navbar-nav-default .elementskit-navbar-nav {
-    display: block !important;
-    height: auto !important;
-  }
-
-  /* Remove any large min-height forcing stretching */
-  .elementskit-navbar-nav-default.elementskit-menu-offcanvas-elements .elementskit-navbar-nav > li {
-    min-height: unset !important;
-    border-bottom: 1px solid #eaeaea;
   }
 }
 </style>
